@@ -12,7 +12,7 @@ const Navbar = () => {
       style={{
         backgroundColor: theme?.theme?.secondColor,
         color: theme?.theme?.textColor,
-        border: `3px solid ${theme?.theme.mainColor}`,
+        border: `3px solid ${theme?.theme?.mainColor}`,
       }}
     >
       <NavLink

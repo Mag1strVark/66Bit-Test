@@ -8,7 +8,7 @@ const Header = () => {
     <div
       className={s.container}
       style={{
-        backgroundColor: theme?.theme.mainColor,
+        backgroundColor: theme?.theme?.mainColor,
       }}
     >
       <h1>Новости</h1>
