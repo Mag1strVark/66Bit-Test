@@ -16,7 +16,7 @@ export const appAPI = createApi({
         },
       }),
     }),
-    getTheme: builder.query<ITheme[], string>({
+    getTheme: builder.query<ITheme, string>({
       query: (name: string) => ({
         url: `/theme/get`,
         params: {

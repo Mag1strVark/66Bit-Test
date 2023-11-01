@@ -58,6 +58,12 @@ const UseFeed = () => {
     }
   }, [isRefreshing])
 
+  const onRefresh = () => {
+    setCount(10)
+    window.scrollTo(0, 0)
+    refetch()
+  }
+
   return {
     posts,
     isLoading,
@@ -65,6 +71,7 @@ const UseFeed = () => {
     handleTouchStart,
     handleTouchMove,
     handleTouchEnd,
+    onRefresh,
   }
 }
 

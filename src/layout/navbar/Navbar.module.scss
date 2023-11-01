@@ -1,13 +1,28 @@
 .container{
   position: fixed;
   bottom: 10px;
-  width: 300px;
+  width: 400px;
   height: 120px;
   background-color: aqua;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 20px;
   z-index: 999;
+  border-radius: 20px;
+}
+
+.navLink{
+  color: black;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: white;
+    background-color: lightblue;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
 }
