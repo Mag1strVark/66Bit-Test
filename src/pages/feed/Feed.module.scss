@@ -14,19 +14,6 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
-
-  //img {
-  //  width: 20px;
-  //  height: 20px;
-  //  animation: spin 1s infinite linear;
-  //  fill: green;
-  //}
-  //
-  //@keyframes spin {
-  //  to {
-  //    transform: rotate(-360deg);
-  //  }
-  //}
 }
 
 .reloadInfo{
@@ -35,7 +22,6 @@
   left: 20px;
   width: 40px;
   height: 40px;
-  background-color: black;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -47,10 +33,15 @@
   img {
     width: 20px;
     height: 20px;
+    &:hover{
+      animation: spin 1s infinite linear;
+    }
   }
 
-  &:hover {
-    background-color: green;
+  @keyframes spin {
+    to {
+      transform: rotate(-360deg);
+    }
   }
 }
 

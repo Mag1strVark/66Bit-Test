@@ -23,6 +23,7 @@
   transition: all ease-out 0.3s;
   &:hover{
     background-color: rgb(111, 103, 120);
+    border: 3px solid rgb(25, 25, 25);
   }
 }
 
@@ -35,6 +36,7 @@
   transition: all ease-out 0.3s;
   &:hover{
     background-color: rgb(255, 255, 255);
+    border: 3px solid rgb(206, 240, 227);
   }
 }
 
@@ -47,5 +49,6 @@
   transition: all ease-out 0.3s;
   &:hover{
     background-color: rgb(41, 67, 153);
+    border: 3px solid rgb(34, 22, 105);
   }
 }

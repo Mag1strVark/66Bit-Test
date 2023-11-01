@@ -13,7 +13,7 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const themeStorage = getItem('theme') ? getItem('theme') : 'dark'
+  const themeStorage = getItem('theme') ? getItem('theme') : 'light'
   const [name, setName] = useState<string>(themeStorage)
   const { data: theme } = appAPI.useGetThemeQuery(name)
 
