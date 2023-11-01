@@ -58,10 +58,13 @@ const UseFeed = () => {
     }
   }, [isRefreshing])
 
-  const onRefresh = () => {
+  const onRefresh = async () => {
     setCount(10)
-    window.scrollTo(0, 0)
-    refetch()
+    setIsRefreshing(true)
+    await new Promise((resolve) => setTimeout(resolve, 500))
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+    await refetch()
+    setIsRefreshing(false)
   }
 
   return {

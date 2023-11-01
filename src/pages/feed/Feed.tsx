@@ -5,6 +5,7 @@ import Up from '../../assets/Up.svg'
 import Reload from '../../assets/Swap.svg'
 import { useContext } from 'react'
 import { ThemeContext } from '../../context/themeContext.tsx'
+import Loading from '../../layout/loading/Loading.tsx'
 
 const Feed = () => {
   const {
@@ -20,7 +21,7 @@ const Feed = () => {
   const theme = useContext(ThemeContext)
 
   if (isLoading) {
-    return <div>Загрузка...</div>
+    return <Loading />
   }
 
   if (!posts) {
@@ -34,7 +35,11 @@ const Feed = () => {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      {isRefreshing && <div className={s.refreshIndicator}>Загрузка...</div>}
+      {isRefreshing && (
+        <div className={s.refreshIndicator}>
+          <Loading />
+        </div>
+      )}
       <div
         className={s.scrollToTopButton}
         onClick={() => window.scrollTo(0, 0)}
