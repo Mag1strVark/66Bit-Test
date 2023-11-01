@@ -3,7 +3,7 @@ import { appAPI } from '../services/AppService.ts'
 import { ITheme } from '../models/ITheme.ts'
 
 export const ThemeContext = createContext<{
-  theme: ITheme
+  theme: ITheme | undefined
   changeTheme: (newTheme: string) => void
 } | null>(null)
 
