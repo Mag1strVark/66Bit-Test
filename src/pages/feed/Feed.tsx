@@ -24,7 +24,7 @@ const Feed = () => {
     return <Loading />
   }
 
-  if (!posts) {
+  if ((!posts || !navigator.onLine) && !isLoading) {
     return <div>Нету новостей</div>
   }
 
@@ -42,7 +42,7 @@ const Feed = () => {
       )}
       <div
         className={s.scrollToTopButton}
-        onClick={() => window.scrollTo(0, 0)}
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         style={{
           backgroundColor: theme?.theme?.mainColor,
         }}
@@ -56,7 +56,7 @@ const Feed = () => {
         className={s.reloadInfo}
         onClick={() => onRefresh()}
       >
-        <img src={Reload} alt="Reload info" style={{ fill: 'black' }} />
+        <img src={Reload} alt="Reload info" />
       </div>
       {posts && posts.map((feed) => <FeedContainer feed={feed} />)}
     </div>

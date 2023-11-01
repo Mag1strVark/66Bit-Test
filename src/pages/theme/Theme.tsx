@@ -16,19 +16,19 @@ const Theme = () => {
         className={s.dark}
         onClick={() => theme?.changeTheme(ThemeName.Dark)}
       >
-        Темная
+        Темная тема
       </button>
       <button
         className={s.light}
         onClick={() => theme?.changeTheme(ThemeName.Light)}
       >
-        Светлая
+        Светлая тема
       </button>
       <button
         className={s.blue}
         onClick={() => theme?.changeTheme(ThemeName.Blue)}
       >
-        Голубая
+        Голубая тема
       </button>
     </div>
   )
