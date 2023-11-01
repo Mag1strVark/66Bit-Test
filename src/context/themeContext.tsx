@@ -1,6 +1,7 @@
 import { createContext, useState } from 'react'
 import { appAPI } from '../services/AppService.ts'
 import { ITheme } from '../models/ITheme.ts'
+import { getItem, setItem } from '../utils/storage.ts'
 
 export const ThemeContext = createContext<{
   theme: ITheme | undefined
@@ -12,11 +13,13 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const [name, setName] = useState<string>('dark')
+  const themeStorage = getItem('theme') ? getItem('theme') : 'dark'
+  const [name, setName] = useState<string>(themeStorage)
   const { data: theme } = appAPI.useGetThemeQuery(name)
 
   const changeTheme = (newTheme: string) => {
     setName(newTheme)
+    setItem('theme', newTheme)
   }
 
   const themeContextValue = { theme, changeTheme }
