@@ -2,11 +2,16 @@ import s from './Feed.module.scss'
 import { appAPI } from '../../services/AppService.ts'
 import FeedContainer from '../../components/FeedContainer/FeedContainer.tsx'
 import { useState } from 'react'
+import PullToRefresh from 'react-pull-to-refresh'
 
 const Feed = () => {
   const [page, setPage] = useState<number>(1)
   const [count, setCount] = useState<number>(5)
-  const { data: posts, isLoading } = appAPI.useGetAllFeedsQuery({
+  const {
+    data: posts,
+    isLoading,
+    refetch,
+  } = appAPI.useGetAllFeedsQuery({
     page: page,
     count: count,
   })
@@ -23,6 +28,9 @@ const Feed = () => {
     }
   }
 
+  const handleRefresh = async () => {
+    await refetch()
+  }
   if (isLoading) {
     return <div>Загрузка...</div>
   }
@@ -33,12 +41,14 @@ const Feed = () => {
 
   return (
     <div className={s.container}>
-      {posts && posts.map((feed) => <FeedContainer feed={feed} />)}
-      <button onClick={prevPage}>-</button>
-      <button onClick={() => nextPage()}>+</button>
-      <button onClick={() => setCount((prevState) => prevState + 10)}>
-        Больше новостей
-      </button>
+      <PullToRefresh onRefresh={handleRefresh}>
+        {posts && posts.map((feed) => <FeedContainer feed={feed} />)}
+        <button onClick={prevPage}>предыдущая</button>
+        <button onClick={() => nextPage()}>следующая</button>
+        <button onClick={() => setCount((prevState) => prevState + 10)}>
+          Больше новостей
+        </button>
+      </PullToRefresh>
     </div>
   )
 }
