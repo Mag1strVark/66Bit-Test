@@ -8,33 +8,16 @@ export const appAPI = createApi({
     baseUrl: 'https://frontappapi.dock7.66bit.ru/api',
   }),
   endpoints: (builder) => ({
-    getAllFeeds: builder.query<IFeed[], { page: number; count: number }>({
-      query: (arg) => ({
+    getAllFeeds: builder.query<IFeed[], number>({
+      query: (count: number) => ({
         url: `/news/get`,
         params: {
-          page: arg.page,
-          count: arg.count,
+          count: count,
         },
       }),
     }),
-    getDarkTheme: builder.query<ITheme[], string>({
-      query: (name: string = 'dark') => ({
-        url: `/theme/get`,
-        params: {
-          name: name,
-        },
-      }),
-    }),
-    getLightTheme: builder.query<ITheme[], string>({
-      query: (name: string = 'light') => ({
-        url: `/theme/get`,
-        params: {
-          name: name,
-        },
-      }),
-    }),
-    getBlueTheme: builder.query<ITheme[], string>({
-      query: (name: string = 'blue') => ({
+    getTheme: builder.query<ITheme[], string>({
+      query: (name: string) => ({
         url: `/theme/get`,
         params: {
           name: name,
