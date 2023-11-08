@@ -20,11 +20,11 @@ const Feed = () => {
 
   const theme = useContext(ThemeContext)
 
-  // if (isLoading) {
-  //   return <Loading />
-  // }
+  if (isLoading) {
+    return <Loading />
+  }
 
-  if ((!posts || !navigator.onLine) && !isLoading) {
+  if (!posts) {
     return <div>Нету новостей</div>
   }
 
