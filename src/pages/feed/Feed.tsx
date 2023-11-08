@@ -10,7 +10,6 @@ import Loading from '../../layout/loading/Loading.tsx'
 const Feed = () => {
   const {
     posts,
-    isLoading,
     isRefreshing,
     handleTouchStart,
     handleTouchMove,

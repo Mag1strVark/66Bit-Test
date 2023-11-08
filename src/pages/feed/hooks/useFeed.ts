@@ -30,7 +30,7 @@ const UseFeed = () => {
 
   useEffect(() => {
     setPosts(fetchedPosts)
-  }, [])
+  }, [fetchedPosts])
 
   // Пагинация
   const handleScroll = () => {
@@ -64,14 +64,14 @@ const UseFeed = () => {
     const diffY = currentY - startY
     const scrollThreshold = 100
 
-    if (diffY > scrollThreshold && !isLoading && !isRefreshing) {
+    if (diffY > scrollThreshold && !isRefreshing) {
       setIsRefreshing(true)
     }
   }
 
   const handleTouchEnd = (e: any) => {
     const diffY = e.changedTouches[0].clientY - startY
-    if (diffY > 100 && !isLoading && isRefreshing) {
+    if (diffY > 100 && isRefreshing) {
       setCount(10)
       refetch()
     }
@@ -97,7 +97,6 @@ const UseFeed = () => {
 
   return {
     posts,
-    isLoading,
     isRefreshing,
     handleTouchStart,
     handleTouchMove,
