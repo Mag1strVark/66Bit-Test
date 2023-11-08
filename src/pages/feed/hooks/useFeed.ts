@@ -15,19 +15,19 @@ const UseFeed = () => {
   const [startY, setStartY] = useState(0)
   const [isRefreshing, setIsRefreshing] = useState(false)
 
-  // Offline
-  useEffect(() => {
-    const savedPosts = getItem('posts')
-
-    if (savedPosts) {
-      setPosts(savedPosts)
-      setIsLoading(false)
-    } else {
-      setPosts(null)
-      setIsLoading(true)
-    }
-  }, [])
-
+  // // Offline
+  // useEffect(() => {
+  //   const savedPosts = getItem('posts')
+  //
+  //   if (savedPosts) {
+  //     setPosts(savedPosts)
+  //     setIsLoading(false)
+  //   } else {
+  //     setPosts(null)
+  //     setIsLoading(true)
+  //   }
+  // }, [])
+  //
   useEffect(() => {
     if (!isLoading && fetchedPosts) {
       setPosts(fetchedPosts)
