@@ -15,7 +15,7 @@ const UseFeed = () => {
   const [startY, setStartY] = useState(0)
   const [isRefreshing, setIsRefreshing] = useState(false)
 
-  // // Offline
+  // Offline
   // useEffect(() => {
   //   const savedPosts = getItem('posts')
   //
@@ -27,13 +27,10 @@ const UseFeed = () => {
   //     setIsLoading(true)
   //   }
   // }, [])
-  //
+
   useEffect(() => {
-    if (!isLoading && fetchedPosts) {
-      setPosts(fetchedPosts)
-      setItem('posts', fetchedPosts)
-    }
-  }, [fetchedPosts])
+    setPosts(fetchedPosts)
+  }, [])
 
   // Пагинация
   const handleScroll = () => {
